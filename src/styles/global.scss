@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Leckerli+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Galada&display=swap');
+
+$blackColour: rgb(0, 0, 0);
+$whiteColour: rgb(255, 255, 255);
+$redColour: rgb(192, 0, 0);
+$titleFont: "Galada";
+$navbar-height: 150px;
+$main-font: "Roboto Slab";
+
+:root {
+  --scroll-bar-pri-colour: white;
+  --scroll-bar-sec-colour: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $main-font;
+  overflow-x: hidden;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-bar-pri-colour) var(--scroll-bar-sec-colour);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-pri-colour);
+  border-radius: 20px;
+  border: 3px solid var(--scroll-bar-sec-colour);
+}
+
+@mixin buttonStyle {
+  background-color: $redColour;
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  color: $whiteColour;
+  font-size: 25px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding-top: $navbar-height;
+  width: 100%; 
+  margin: auto;
+  overflow-x: hidden;
+}
+
+@mixin page-section {
+  position: relative;
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 1.5em;
+  overflow: hidden;
+  height: calc(100vh - $navbar-height);  
+}
+
+
+// Navbar
+
+.Navbar {
+  width: 100%;
+  height: $navbar-height;
+  background-color: $blackColour;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 0px 2px 60px 0px rgba(0,0,0,0.6);
+}
+
+.Navbar-Content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Navbar-Content-Logo {
+  text-align: center;
+  color: $whiteColour;
+  font-family: $titleFont;
+  font-size: clamp(4em, 1vh , 8em);
+  transition: all 200ms ease-in;
+  margin-bottom: -0.05em;
+  height: 90px;
+  padding-top: 10px;
+  margin: auto;
+  width: 170px;
+  
+  &:hover { 
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+
+  & .img{
+    transform: scaleX(1.1);
+    height: 100%;
+  }
+
+  & img:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.Navbar-Content-Pages {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  z-index: 0;
+
+  & li {
+    border-right: solid white 2px;
+  }
+  & li:last-child {
+    border: none;
+  }
+}
+
+.Navbar-Content-Pages-Item {
+  color: $whiteColour;
+  font-size: clamp(1.1em, 1vh , 3em);
+  transition: all 200ms ease-in;
+  padding: 0 1em;
+  z-index: 100;
+
+  &:hover { 
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+// Footer
+.footer-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: $blackColour;
+  color: $whiteColour;
+  text-align: center;
+  bottom:0;
+  left:0;
+  width:100%;
+  height: 90px;
+  overflow: hidden;
+}
+
+.footer-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.footer-logo {
+  height: 70px;
+  width: 150px;
+  & .img {
+    height: 100%;
+    width: 100%;
+  }
+}
